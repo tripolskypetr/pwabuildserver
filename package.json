@@ -1,6 +1,6 @@
 {
   "name": "pwabuildserver",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "The PWA CI/CD build server for react-declarative",
   "main": "index.mjs",
   "bin": "index.mjs",
