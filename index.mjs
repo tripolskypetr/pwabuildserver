@@ -17,6 +17,7 @@ class BuildProcess {
     launch = (args = []) => {
         const exec = spawn(this._command, args);
         exec.stdout.pipe(process.stdout);
+        exec.stderr.pipe(process.stderr);
         exec.stdout.on('data', (data) => {
             this.output += `${data.toString()}`;
         });
