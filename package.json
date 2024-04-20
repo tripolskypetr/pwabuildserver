@@ -1,0 +1,45 @@
+{
+  "name": "pwabuildserver",
+  "version": "0.0.3",
+  "description": "The PWA CI/CD build server for react-declarative",
+  "main": "index.mjs",
+  "bin": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs",
+    "test": "node --inspect-brk index.mjs"
+  },
+  "keywords": [
+    "react-declarative",
+    "pwa",
+    "reverse-proxy",
+    "https",
+    "http",
+    "port-forwarding",
+    "path-proxy",
+    "proxy",
+    "cors",
+    "mixed-content",
+    "same-origin",
+    "websocket",
+    "build",
+    "cicd"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Petr Tripolsky",
+    "email": "tripolskypetr@gmail.com",
+    "url": "https://github.com/tripolskypetr"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "http://paypal.me/tripolskypetr"
+  },
+  "homepage": "https://github.com/tripolskypetr/pwabuildserver",
+  "repository": "https://github.com/tripolskypetr/pwabuildserver",
+  "dependencies": {
+    "args-parser": "1.3.0",
+    "cors": "2.8.5",
+    "express": "4.19.2",
+    "nocache": "4.0.0"
+  }
+}
