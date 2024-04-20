@@ -67,7 +67,7 @@ app.get('/build', (req, res) => {
 
 app.get('/logs', (req, res) => {
     const logs = execute.getLogs();
-    res.status(200).send(`<meta http-equiv="refresh" content="15"><pre>${logs}</pre>`);
+    res.status(200).send(`<meta http-equiv="refresh" content="15"><pre>Logs:\n${logs}</pre>`);
 });
 
 app.get("*", (req, res) => {
