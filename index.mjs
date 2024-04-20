@@ -16,6 +16,7 @@ class BuildProcess {
     }
     launch = (args = []) => {
         const exec = spawn(this._command, args);
+        exec.stdout.pipe(process.stdout);
         exec.stdout.on('data', (data) => {
             this.output += `${data.toString()}`;
         });
@@ -29,7 +30,11 @@ class BuildProcess {
         exec.on('close', () => {
             this.status = "end";
         });
+        exec.on('exit', () => {
+            this.status = "end";
+        });
         this.status = "begin";
+        console.log(`Execution started: ${new Date().toString()}`);
         this.output += `Execution started: ${new Date().toString()}\n`;
         return this;
     }
@@ -62,12 +67,12 @@ app.use(cors());
 
 app.get('/build', (req, res) => {
     const logs = execute().output;
-    res.status(200).send(`<pre>${logs}</pre>`);
+    res.status(200).send(`<pre>${logs}</pre><script>setTimeout(() => document.body.scrollTo(0, document.body.scrollHeight), 1000);</script>`);
 });
 
 app.get('/logs', (req, res) => {
     const logs = execute.getLogs();
-    res.status(200).send(`<meta http-equiv="refresh" content="15"><pre>Logs:\n${logs}</pre>`);
+    res.status(200).send(`<meta http-equiv="refresh" content="15"><pre>Logs:\n${logs}</pre><script>setTimeout(() => document.body.scrollTo(0, document.body.scrollHeight), 1000);</script>`);
 });
 
 app.get("*", (req, res) => {
